@@ -303,7 +303,7 @@ const Contact = () => {
             <div className="text-center">
               <div className="text-4xl mb-4">⚡</div>
               <h3 className="text-lg font-semibold mb-2">Fast Response</h3>
-              <p className="text-gray-600">< 1 hour for critical issues</p>
+              <p className="text-gray-600">&lt; 1 hour for critical issues</p>
             </div>
             <div className="text-center">
               <div className="text-4xl mb-4">🎯</div>
