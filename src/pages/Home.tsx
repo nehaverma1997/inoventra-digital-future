@@ -97,10 +97,10 @@ const Home = () => {
   }, []);
 
   const stats = [
-    { label: "Happy Clients", value: "500+", icon: Users, color: "from-blue-500 to-indigo-600" },
-    { label: "Projects Delivered", value: "1000+", icon: Award, color: "from-indigo-500 to-purple-600" },
-    { label: "Expert Team", value: "150+", icon: Zap, color: "from-purple-500 to-pink-600" },
-    { label: "Global Reach", value: "25+", icon: Globe, color: "from-pink-500 to-rose-600" },
+    { label: "Happy Clients", value: "500+", icon: Users, color: "from-soft-blue to-desaturated-indigo" },
+    { label: "Projects Delivered", value: "1000+", icon: Award, color: "from-desaturated-indigo to-misty-lavender" },
+    { label: "Expert Team", value: "150+", icon: Zap, color: "from-misty-lavender to-warm-coral" },
+    { label: "Global Reach", value: "25+", icon: Globe, color: "from-warm-coral to-soft-blue" },
   ];
 
   const services = [
@@ -108,42 +108,42 @@ const Home = () => {
       title: "AI & Machine Learning",
       description: "Harness the power of artificial intelligence to transform your business operations and drive intelligent automation.",
       icon: Brain,
-      gradient: "from-blue-500 to-indigo-600",
+      gradient: "from-soft-blue to-desaturated-indigo",
       features: ["Computer Vision", "Natural Language Processing", "Predictive Analytics"]
     },
     {
       title: "Blockchain Solutions",
       description: "Build secure, decentralized applications and smart contracts that revolutionize digital transactions.",
       icon: Blocks,
-      gradient: "from-indigo-500 to-purple-600",
+      gradient: "from-desaturated-indigo to-misty-lavender",
       features: ["Smart Contracts", "DeFi Platforms", "NFT Marketplaces"]
     },
     {
       title: "Cloud Architecture",
       description: "Design scalable, secure cloud infrastructure that grows with your business needs and ensures reliability.",
       icon: Cloud,
-      gradient: "from-purple-500 to-pink-600",
+      gradient: "from-misty-lavender to-warm-coral",
       features: ["AWS Solutions", "DevOps", "Microservices"]
     },
     {
       title: "Digital Innovation",
       description: "Transform traditional processes with cutting-edge digital solutions that enhance efficiency and user experience.",
       icon: Rocket,
-      gradient: "from-pink-500 to-rose-600",
+      gradient: "from-warm-coral to-soft-blue",
       features: ["Process Automation", "Legacy Modernization", "Digital Strategy"]
     },
     {
       title: "Mobile Excellence",
       description: "Create stunning mobile applications that deliver exceptional user experiences across all platforms.",
       icon: Smartphone,
-      gradient: "from-rose-500 to-orange-600",
+      gradient: "from-soft-blue to-warm-coral",
       features: ["Native Apps", "Progressive Web Apps", "Cross-Platform"]
     },
     {
       title: "Cybersecurity",
       description: "Protect your digital assets with enterprise-grade security solutions and advanced threat protection.",
       icon: Lock,
-      gradient: "from-orange-500 to-red-600",
+      gradient: "from-desaturated-indigo to-soft-blue",
       features: ["Security Audits", "Penetration Testing", "Compliance"]
     }
   ];
@@ -175,19 +175,19 @@ const Home = () => {
       <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center" ref={heroRef}>
           <div className="mb-8">
-            <span className="inline-flex items-center px-8 py-4 rounded-full bg-white/80 backdrop-blur-sm text-slate-700 text-sm font-semibold shadow-xl shadow-indigo-500/20 border border-white/50">
-              <Sparkles className="w-5 h-5 mr-3 text-indigo-600 animate-pulse-soft" />
+            <span className="inline-flex items-center px-8 py-4 rounded-full bg-white/80 backdrop-blur-sm text-charcoal-gray text-sm font-semibold shadow-xl shadow-soft-blue/20 border border-misty-lavender/50">
+              <Sparkles className="w-5 h-5 mr-3 text-soft-blue animate-pulse-soft" />
               Pioneering Digital Innovation Since 2020
             </span>
           </div>
           
           <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold mb-8 leading-tight">
             <span className="soft-gradient-text block mb-4">Innovation</span>
-            <span className="text-slate-800 block mb-4">Meets</span>
+            <span className="text-charcoal-gray block mb-4">Meets</span>
             <span className="gradient-text block">Excellence</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-slate-600 mb-12 max-w-4xl mx-auto leading-relaxed font-light">
+          <p className="text-xl md:text-2xl text-slate-gray mb-12 max-w-4xl mx-auto leading-relaxed font-light">
             We craft extraordinary digital experiences that transform businesses and inspire innovation. 
             From AI-powered solutions to cutting-edge web applications, we turn your vision into reality.
           </p>
@@ -220,7 +220,7 @@ const Home = () => {
                   <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">
                     {stat.value}
                   </div>
-                  <div className="text-slate-600 font-medium">{stat.label}</div>
+                  <div className="text-slate-gray font-medium">{stat.label}</div>
                 </div>
               );
             })}
@@ -229,13 +229,13 @@ const Home = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-24 bg-gradient-to-r from-white via-blue-50/30 to-indigo-50/20">
+      <section className="py-24 bg-gradient-to-r from-white via-misty-lavender/30 to-soft-blue/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <h2 className="text-5xl md:text-6xl font-bold soft-gradient-text mb-6">
               Why Choose Us?
             </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto font-light">
+            <p className="text-xl text-slate-gray max-w-3xl mx-auto font-light">
               We combine technical excellence with creative innovation to deliver solutions that exceed expectations.
             </p>
           </div>
@@ -244,13 +244,13 @@ const Home = () => {
             {features.map((feature, index) => {
               const IconComponent = feature.icon;
               return (
-                <Card key={index} className="hover-lift modern-card group border-0 shadow-xl shadow-slate-500/10">
+                <Card key={index} className="hover-lift modern-card group border-0 shadow-xl shadow-soft-blue/10">
                   <CardContent className="p-10 text-center">
-                    <div className="w-20 h-20 bg-gradient-to-r from-indigo-500 to-blue-600 rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform duration-500 shadow-xl shadow-indigo-500/30">
+                    <div className="w-20 h-20 bg-gradient-to-r from-soft-blue to-desaturated-indigo rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform duration-500 shadow-xl shadow-soft-blue/30">
                       <IconComponent className="w-10 h-10 text-white" />
                     </div>
                     <h3 className="text-2xl font-semibold mb-4 text-gradient-hover">{feature.title}</h3>
-                    <p className="text-slate-600 leading-relaxed">{feature.description}</p>
+                    <p className="text-slate-gray leading-relaxed">{feature.description}</p>
                   </CardContent>
                 </Card>
               );
@@ -266,7 +266,7 @@ const Home = () => {
             <h2 className="text-5xl md:text-6xl font-bold soft-gradient-text mb-6">
               Our Expertise
             </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto font-light">
+            <p className="text-xl text-slate-gray max-w-3xl mx-auto font-light">
               Comprehensive technology solutions designed for modern businesses across all industries.
             </p>
           </div>
@@ -275,8 +275,8 @@ const Home = () => {
             {services.map((service, index) => {
               const IconComponent = service.icon;
               return (
-                <Card key={index} className="hover-lift modern-card group border-0 shadow-xl shadow-slate-500/10 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-white via-blue-50/20 to-indigo-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <Card key={index} className="hover-lift modern-card group border-0 shadow-xl shadow-soft-blue/10 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-white via-misty-lavender/20 to-soft-blue/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <CardContent className="p-8 relative">
                     <div className={`w-16 h-16 bg-gradient-to-r ${service.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-500`}>
                       <IconComponent className="w-8 h-8 text-white" />
@@ -284,18 +284,18 @@ const Home = () => {
                     <h3 className="text-2xl font-semibold mb-4 text-gradient-hover">
                       {service.title}
                     </h3>
-                    <p className="text-slate-600 mb-6 leading-relaxed">{service.description}</p>
+                    <p className="text-slate-gray mb-6 leading-relaxed">{service.description}</p>
                     <div className="space-y-2 mb-6">
                       {service.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-center text-sm text-slate-500">
-                          <div className="w-1.5 h-1.5 bg-indigo-500 rounded-full mr-3"></div>
+                        <div key={idx} className="flex items-center text-sm text-slate-gray">
+                          <div className="w-1.5 h-1.5 bg-soft-blue rounded-full mr-3"></div>
                           {feature}
                         </div>
                       ))}
                     </div>
                     <Link 
                       to="/services" 
-                      className="inline-flex items-center text-indigo-600 hover:text-indigo-700 font-semibold group-hover:translate-x-2 transition-all duration-300"
+                      className="inline-flex items-center text-soft-blue hover:text-desaturated-indigo font-semibold group-hover:translate-x-2 transition-all duration-300"
                     >
                       Learn More
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -318,21 +318,21 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-r from-indigo-600 via-blue-600 to-purple-700 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/95 to-purple-700/95"></div>
+      <section className="py-24 bg-gradient-to-r from-soft-blue via-desaturated-indigo to-misty-lavender text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-soft-blue/95 to-desaturated-indigo/95"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_70%)]"></div>
         <div className="relative max-w-5xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-5xl md:text-6xl font-bold mb-8">
             Ready to Innovate?
           </h2>
-          <p className="text-xl mb-12 text-blue-100 font-light max-w-3xl mx-auto">
+          <p className="text-xl mb-12 text-misty-lavender font-light max-w-3xl mx-auto">
             Join hundreds of forward-thinking companies who trust us to transform their digital presence and drive growth.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button asChild size="lg" className="bg-white text-indigo-700 hover:bg-gray-100 px-12 py-6 rounded-2xl font-semibold shadow-xl">
+            <Button asChild size="lg" className="bg-white text-desaturated-indigo hover:bg-gray-100 px-12 py-6 rounded-2xl font-semibold shadow-xl">
               <Link to="/contact">Schedule Consultation</Link>
             </Button>
-            <Button asChild size="lg" className="border-2 border-white text-white hover:bg-white hover:text-indigo-700 px-12 py-6 rounded-2xl font-semibold transition-all duration-300">
+            <Button asChild size="lg" className="border-2 border-white text-white hover:bg-white hover:text-desaturated-indigo px-12 py-6 rounded-2xl font-semibold transition-all duration-300">
               <Link to="/contact">Get Quote</Link>
             </Button>
           </div>

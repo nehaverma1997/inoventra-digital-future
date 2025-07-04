@@ -36,30 +36,31 @@ const ThreeBackground = () => {
       new THREE.CylinderGeometry(0.3, 0.3, 1, 6),
     ];
 
+    // Updated materials with new color palette
     const materials = [
       new THREE.MeshPhongMaterial({ 
-        color: 0x6366f1, 
+        color: 0x6CACE4, // Soft Blue
         transparent: true, 
         opacity: 0.4,
         wireframe: false,
         shininess: 100
       }),
       new THREE.MeshPhongMaterial({ 
-        color: 0x3b82f6, 
+        color: 0x4C5B8F, // Desaturated Indigo
         transparent: true, 
         opacity: 0.35,
         wireframe: true,
         shininess: 100
       }),
       new THREE.MeshPhongMaterial({ 
-        color: 0x8b5cf6, 
+        color: 0xD6D6F5, // Misty Lavender
         transparent: true, 
         opacity: 0.3,
         wireframe: false,
         shininess: 100
       }),
       new THREE.MeshPhongMaterial({ 
-        color: 0x06b6d4, 
+        color: 0xFFB6A3, // Warm Coral
         transparent: true, 
         opacity: 0.25,
         wireframe: true,
@@ -106,20 +107,20 @@ const ThreeBackground = () => {
       meshes.push(mesh);
     }
 
-    // Enhanced lighting setup
+    // Enhanced lighting setup with new colors
     const ambientLight = new THREE.AmbientLight(0x404040, 0.6);
     scene.add(ambientLight);
     
-    const directionalLight1 = new THREE.DirectionalLight(0x6366f1, 0.8);
+    const directionalLight1 = new THREE.DirectionalLight(0x6CACE4, 0.8); // Soft Blue
     directionalLight1.position.set(5, 5, 5);
     directionalLight1.castShadow = true;
     scene.add(directionalLight1);
     
-    const directionalLight2 = new THREE.DirectionalLight(0x3b82f6, 0.6);
+    const directionalLight2 = new THREE.DirectionalLight(0x4C5B8F, 0.6); // Desaturated Indigo
     directionalLight2.position.set(-5, -5, 5);
     scene.add(directionalLight2);
 
-    const pointLight = new THREE.PointLight(0x8b5cf6, 0.5, 100);
+    const pointLight = new THREE.PointLight(0xFFB6A3, 0.5, 100); // Warm Coral
     pointLight.position.set(0, 0, 20);
     scene.add(pointLight);
 

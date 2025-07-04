@@ -5,44 +5,44 @@
 
 @layer base {
   :root {
-    --background: 252 252 253;
-    --foreground: 51 65 85;
+    --background: 247 249 252;
+    --foreground: 51 51 51;
 
     --card: 255 255 255;
-    --card-foreground: 51 65 85;
+    --card-foreground: 51 51 51;
 
     --popover: 255 255 255;
-    --popover-foreground: 51 65 85;
+    --popover-foreground: 51 51 51;
 
-    --primary: 99 102 241;
+    --primary: 108 172 228;
     --primary-foreground: 255 255 255;
 
-    --secondary: 248 250 252;
-    --secondary-foreground: 71 85 105;
+    --secondary: 214 214 245;
+    --secondary-foreground: 76 91 143;
 
-    --muted: 248 250 252;
-    --muted-foreground: 100 116 139;
+    --muted: 214 214 245;
+    --muted-foreground: 122 122 122;
 
-    --accent: 239 246 255;
-    --accent-foreground: 59 130 246;
+    --accent: 255 182 163;
+    --accent-foreground: 51 51 51;
 
     --destructive: 239 68 68;
     --destructive-foreground: 255 255 255;
 
-    --border: 226 232 240;
-    --input: 226 232 240;
-    --ring: 99 102 241;
+    --border: 214 214 245;
+    --input: 214 214 245;
+    --ring: 108 172 228;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 255 255 255;
-    --sidebar-foreground: 51 65 85;
-    --sidebar-primary: 99 102 241;
+    --sidebar-background: 247 249 252;
+    --sidebar-foreground: 51 51 51;
+    --sidebar-primary: 108 172 228;
     --sidebar-primary-foreground: 255 255 255;
-    --sidebar-accent: 248 250 252;
-    --sidebar-accent-foreground: 51 65 85;
-    --sidebar-border: 226 232 240;
-    --sidebar-ring: 99 102 241;
+    --sidebar-accent: 214 214 245;
+    --sidebar-accent-foreground: 51 51 51;
+    --sidebar-border: 214 214 245;
+    --sidebar-ring: 108 172 228;
   }
 }
 
@@ -65,23 +65,23 @@
 
 @layer components {
   .gradient-text {
-    @apply bg-gradient-to-r from-indigo-600 via-blue-600 to-purple-600 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[#6CACE4] via-[#4C5B8F] to-[#D6D6F5] bg-clip-text text-transparent;
   }
   
   .soft-gradient-text {
-    @apply bg-gradient-to-r from-slate-700 via-indigo-600 to-blue-600 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[#333333] via-[#6CACE4] to-[#4C5B8F] bg-clip-text text-transparent;
   }
   
   .hover-lift {
-    @apply transition-all duration-700 ease-out hover:translate-y-[-12px] hover:shadow-2xl hover:shadow-indigo-500/15;
+    @apply transition-all duration-700 ease-out hover:translate-y-[-12px] hover:shadow-2xl hover:shadow-[#6CACE4]/15;
   }
   
   .glass-effect {
-    @apply backdrop-blur-xl bg-white/80 border border-white/40 shadow-xl shadow-indigo-500/10;
+    @apply backdrop-blur-xl bg-white/80 border border-[#D6D6F5]/40 shadow-xl shadow-[#6CACE4]/10;
   }
 
   .modern-card {
-    @apply bg-white/95 backdrop-blur-sm border border-slate-200/60 rounded-3xl shadow-lg shadow-slate-500/10 hover:shadow-xl hover:shadow-indigo-500/15 transition-all duration-500;
+    @apply bg-white/95 backdrop-blur-sm border border-[#D6D6F5]/60 rounded-3xl shadow-lg shadow-[#6CACE4]/10 hover:shadow-xl hover:shadow-[#FFB6A3]/15 transition-all duration-500;
   }
 
   .gradient-border {
@@ -90,7 +90,7 @@
 
   .gradient-border::before {
     content: '';
-    @apply absolute inset-0 p-[1px] bg-gradient-to-r from-indigo-400 via-blue-500 to-purple-500 rounded-3xl;
+    @apply absolute inset-0 p-[1px] bg-gradient-to-r from-[#6CACE4] via-[#FFB6A3] to-[#D6D6F5] rounded-3xl;
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask-composite: exclude;
   }
@@ -100,15 +100,15 @@
   }
 
   .text-gradient-hover {
-    @apply transition-all duration-500 hover:bg-gradient-to-r hover:from-indigo-600 hover:to-blue-600 hover:bg-clip-text hover:text-transparent;
+    @apply transition-all duration-500 hover:bg-gradient-to-r hover:from-[#6CACE4] hover:to-[#4C5B8F] hover:bg-clip-text hover:text-transparent;
   }
 
   .soft-shadow {
-    box-shadow: 0 10px 40px -10px rgba(99, 102, 241, 0.1);
+    box-shadow: 0 10px 40px -10px rgba(108, 172, 228, 0.1);
   }
 
   .modern-blur {
-    @apply backdrop-blur-md bg-white/70 border border-white/30;
+    @apply backdrop-blur-md bg-white/70 border border-[#D6D6F5]/30;
   }
 }
 
@@ -118,17 +118,17 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: linear-gradient(180deg, #f8fafc, #f1f5f9);
+  background: linear-gradient(180deg, #F7F9FC, #D6D6F5);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #6366f1, #4f46e5);
+  background: linear-gradient(180deg, #6CACE4, #4C5B8F);
   border-radius: 10px;
-  border: 2px solid #f8fafc;
+  border: 2px solid #F7F9FC;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #4f46e5, #4338ca);
+  background: linear-gradient(180deg, #4C5B8F, #6CACE4);
 }
 
 @keyframes float {
@@ -163,7 +163,7 @@
 
 /* Modern button styles */
 .btn-modern {
-  @apply relative overflow-hidden bg-gradient-to-r from-indigo-600 to-blue-600 text-white font-semibold py-4 px-10 rounded-2xl transition-all duration-500 hover:from-indigo-700 hover:to-blue-700 hover:shadow-2xl hover:shadow-indigo-500/30 hover:scale-105 active:scale-95;
+  @apply relative overflow-hidden bg-gradient-to-r from-[#6CACE4] to-[#4C5B8F] text-white font-semibold py-4 px-10 rounded-2xl transition-all duration-500 hover:from-[#4C5B8F] hover:to-[#6CACE4] hover:shadow-2xl hover:shadow-[#6CACE4]/30 hover:scale-105 active:scale-95;
 }
 
 .btn-modern::before {
@@ -176,12 +176,12 @@
 }
 
 .btn-soft {
-  @apply relative overflow-hidden bg-white/90 backdrop-blur-sm text-slate-700 font-semibold py-4 px-10 rounded-2xl border border-slate-200/60 transition-all duration-500 hover:bg-white hover:shadow-xl hover:shadow-slate-500/20 hover:scale-105 active:scale-95;
+  @apply relative overflow-hidden bg-white/90 backdrop-blur-sm text-[#333333] font-semibold py-4 px-10 rounded-2xl border border-[#D6D6F5]/60 transition-all duration-500 hover:bg-white hover:shadow-xl hover:shadow-[#FFB6A3]/20 hover:scale-105 active:scale-95;
 }
 
 /* Enhanced focus states */
 .focus-modern {
-  @apply focus:outline-none focus:ring-4 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all duration-300;
+  @apply focus:outline-none focus:ring-4 focus:ring-[#6CACE4]/20 focus:border-[#6CACE4] transition-all duration-300;
 }
 
 /* Shimmer effect */
