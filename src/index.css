@@ -81,7 +81,7 @@
   }
 
   .modern-card {
-    @apply bg-white/95 backdrop-blur-sm border border-slate-200/60 rounded-3xl shadow-lg shadow-slate-500/8 hover:shadow-xl hover:shadow-indigo-500/15 transition-all duration-500;
+    @apply bg-white/95 backdrop-blur-sm border border-slate-200/60 rounded-3xl shadow-lg shadow-slate-500/10 hover:shadow-xl hover:shadow-indigo-500/15 transition-all duration-500;
   }
 
   .gradient-border {
