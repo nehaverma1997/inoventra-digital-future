@@ -3,13 +3,14 @@ import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { ArrowRight, Sparkles, Globe, Shield, Clock, Zap, Users, Award } from 'lucide-react';
+import { ArrowRight, Sparkles, Globe, Shield, Clock, Zap, Users, Award, Brain, Blocks, Cloud, Rocket, Smartphone, Lock } from 'lucide-react';
 import ThreeBackground from '@/components/ThreeBackground';
 
 const Home = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
+  const featuresRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // GSAP animations
@@ -17,34 +18,37 @@ const Home = () => {
       const gsap = window.gsap;
       gsap.registerPlugin(window.ScrollTrigger);
 
-      // Hero animation
+      // Hero animation with stagger
       if (heroRef.current) {
         gsap.fromTo(
           heroRef.current.children,
-          { opacity: 0, y: 50 },
+          { opacity: 0, y: 60, scale: 0.9 },
           { 
             opacity: 1, 
-            y: 0, 
-            duration: 0.8, 
+            y: 0,
+            scale: 1, 
+            duration: 1.2, 
             stagger: 0.2,
-            ease: "power2.out"
+            ease: "power3.out"
           }
         );
       }
 
-      // Stats animation
+      // Stats animation with bounce
       if (statsRef.current) {
         gsap.fromTo(
           statsRef.current.children,
-          { opacity: 0, scale: 0.8 },
+          { opacity: 0, scale: 0.5, rotation: -10 },
           {
             opacity: 1,
             scale: 1,
-            duration: 0.6,
+            rotation: 0,
+            duration: 0.8,
             stagger: 0.1,
+            ease: "back.out(1.7)",
             scrollTrigger: {
               trigger: statsRef.current,
-              start: "top 80%",
+              start: "top 85%",
             }
           }
         );
@@ -54,14 +58,36 @@ const Home = () => {
       if (servicesRef.current) {
         gsap.fromTo(
           servicesRef.current.children,
-          { opacity: 0, y: 30 },
+          { opacity: 0, y: 50, rotationX: 45 },
           {
             opacity: 1,
             y: 0,
-            duration: 0.6,
-            stagger: 0.1,
+            rotationX: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "power2.out",
             scrollTrigger: {
               trigger: servicesRef.current,
+              start: "top 80%",
+            }
+          }
+        );
+      }
+
+      // Features animation
+      if (featuresRef.current) {
+        gsap.fromTo(
+          featuresRef.current.children,
+          { opacity: 0, x: -30, scale: 0.9 },
+          {
+            opacity: 1,
+            x: 0,
+            scale: 1,
+            duration: 0.7,
+            stagger: 0.1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: featuresRef.current,
               start: "top 80%",
             }
           }
@@ -71,48 +97,72 @@ const Home = () => {
   }, []);
 
   const stats = [
-    { label: "Global Clients", value: "500+", icon: Users },
-    { label: "Projects Delivered", value: "1000+", icon: Award },
-    { label: "Team Members", value: "150+", icon: Zap },
-    { label: "Countries Served", value: "25+", icon: Globe },
+    { label: "Happy Clients", value: "500+", icon: Users, color: "from-blue-500 to-indigo-600" },
+    { label: "Projects Delivered", value: "1000+", icon: Award, color: "from-indigo-500 to-purple-600" },
+    { label: "Expert Team", value: "150+", icon: Zap, color: "from-purple-500 to-pink-600" },
+    { label: "Global Reach", value: "25+", icon: Globe, color: "from-pink-500 to-rose-600" },
   ];
 
   const services = [
     {
       title: "AI & Machine Learning",
-      description: "Generative AI, Computer Vision, and ML solutions that transform business operations.",
-      icon: "🤖",
-      gradient: "from-blue-500 to-purple-600"
+      description: "Harness the power of artificial intelligence to transform your business operations and drive intelligent automation.",
+      icon: Brain,
+      gradient: "from-blue-500 to-indigo-600",
+      features: ["Computer Vision", "Natural Language Processing", "Predictive Analytics"]
     },
     {
-      title: "Blockchain Development",
-      description: "NFT platforms, DApps, Metaverse solutions, and cryptocurrency integration.",
-      icon: "⛓️",
-      gradient: "from-purple-500 to-pink-600"
+      title: "Blockchain Solutions",
+      description: "Build secure, decentralized applications and smart contracts that revolutionize digital transactions.",
+      icon: Blocks,
+      gradient: "from-indigo-500 to-purple-600",
+      features: ["Smart Contracts", "DeFi Platforms", "NFT Marketplaces"]
     },
     {
-      title: "Cloud Solutions",
-      description: "AWS consulting, managed services, and scalable cloud architecture.",
-      icon: "☁️",
-      gradient: "from-cyan-500 to-blue-600"
+      title: "Cloud Architecture",
+      description: "Design scalable, secure cloud infrastructure that grows with your business needs and ensures reliability.",
+      icon: Cloud,
+      gradient: "from-purple-500 to-pink-600",
+      features: ["AWS Solutions", "DevOps", "Microservices"]
     },
     {
-      title: "Digital Transformation",
-      description: "Supply chain optimization, legacy modernization, and process automation.",
-      icon: "🚀",
-      gradient: "from-orange-500 to-red-600"
+      title: "Digital Innovation",
+      description: "Transform traditional processes with cutting-edge digital solutions that enhance efficiency and user experience.",
+      icon: Rocket,
+      gradient: "from-pink-500 to-rose-600",
+      features: ["Process Automation", "Legacy Modernization", "Digital Strategy"]
     },
     {
-      title: "Mobile Development",
-      description: "PWA development and mobile-first design for exceptional user experiences.",
-      icon: "📱",
-      gradient: "from-green-500 to-teal-600"
+      title: "Mobile Excellence",
+      description: "Create stunning mobile applications that deliver exceptional user experiences across all platforms.",
+      icon: Smartphone,
+      gradient: "from-rose-500 to-orange-600",
+      features: ["Native Apps", "Progressive Web Apps", "Cross-Platform"]
     },
     {
-      title: "DevOps & Security",
-      description: "SecOps implementation, CI/CD pipelines, and infrastructure automation.",
-      icon: "🔒",
-      gradient: "from-red-500 to-orange-600"
+      title: "Cybersecurity",
+      description: "Protect your digital assets with enterprise-grade security solutions and advanced threat protection.",
+      icon: Lock,
+      gradient: "from-orange-500 to-red-600",
+      features: ["Security Audits", "Penetration Testing", "Compliance"]
+    }
+  ];
+
+  const features = [
+    {
+      icon: Globe,
+      title: "Global Excellence",
+      description: "International expertise serving clients worldwide with localized solutions and 24/7 support."
+    },
+    {
+      icon: Clock,
+      title: "Rapid Delivery",
+      description: "Agile development methodologies ensuring quick turnaround without compromising quality."
+    },
+    {
+      icon: Shield,
+      title: "Future-Ready",
+      description: "Sustainable technology solutions designed for long-term growth and environmental responsibility."
     }
   ];
 
@@ -125,52 +175,52 @@ const Home = () => {
       <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center" ref={heroRef}>
           <div className="mb-8">
-            <span className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-lavender-100 to-lavender-200 text-lavender-800 text-sm font-semibold shadow-lg">
-              <Sparkles className="w-5 h-5 mr-2 animate-pulse" />
-              Leading IT Innovation Since 2020
+            <span className="inline-flex items-center px-8 py-4 rounded-full bg-white/80 backdrop-blur-sm text-slate-700 text-sm font-semibold shadow-xl shadow-indigo-500/20 border border-white/50">
+              <Sparkles className="w-5 h-5 mr-3 text-indigo-600 animate-pulse-soft" />
+              Pioneering Digital Innovation Since 2020
             </span>
           </div>
           
-          <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
-            <span className="gradient-text">Tech You Need.</span>
-            <br />
-            <span className="text-gray-900">Innovation You</span>
-            <br />
-            <span className="gradient-text">Deserve.</span>
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold mb-8 leading-tight">
+            <span className="soft-gradient-text block mb-4">Innovation</span>
+            <span className="text-slate-800 block mb-4">Meets</span>
+            <span className="gradient-text block">Excellence</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed font-light">
-            Transform your business with cutting-edge technology solutions. From AI and blockchain 
-            to cloud computing and digital transformation, we deliver innovation that drives results.
+          <p className="text-xl md:text-2xl text-slate-600 mb-12 max-w-4xl mx-auto leading-relaxed font-light">
+            We craft extraordinary digital experiences that transform businesses and inspire innovation. 
+            From AI-powered solutions to cutting-edge web applications, we turn your vision into reality.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Button asChild size="lg" className="btn-modern text-lg px-10 py-4 rounded-xl">
+            <Button asChild size="lg" className="btn-modern text-lg px-12 py-6 rounded-2xl">
               <Link to="/contact">
-                Get Started Today
-                <ArrowRight className="ml-2 h-5 w-5" />
+                Start Your Journey
+                <ArrowRight className="ml-3 h-5 w-5" />
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="text-lg px-10 py-4 rounded-xl border-2 border-lavender-300 text-lavender-700 hover:bg-lavender-50 hover:border-lavender-400 transition-all duration-300">
-              <Link to="/portfolio">View Our Work</Link>
+            <Button asChild size="lg" className="btn-soft text-lg px-12 py-6 rounded-2xl">
+              <Link to="/portfolio">Explore Our Work</Link>
             </Button>
           </div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="py-24 bg-gradient-to-r from-white via-lavender-50/30 to-white">
+      <section className="py-24 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8" ref={statsRef}>
             {stats.map((stat, index) => {
               const IconComponent = stat.icon;
               return (
-                <div key={index} className="text-center modern-card p-8 hover-lift">
-                  <IconComponent className="w-12 h-12 text-lavender-600 mx-auto mb-4" />
+                <div key={index} className="text-center modern-card p-8 hover-lift group">
+                  <div className={`w-16 h-16 bg-gradient-to-r ${stat.color} rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-500`}>
+                    <IconComponent className="w-8 h-8 text-white" />
+                  </div>
                   <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">
                     {stat.value}
                   </div>
-                  <div className="text-gray-600 font-medium">{stat.label}</div>
+                  <div className="text-slate-600 font-medium">{stat.label}</div>
                 </div>
               );
             })}
@@ -178,99 +228,89 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Key Highlights */}
-      <section className="py-24">
+      {/* Features Section */}
+      <section className="py-24 bg-gradient-to-r from-white via-blue-50/30 to-indigo-50/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h2 className="text-5xl md:text-6xl font-bold gradient-text mb-6">
-              Why Choose Inoventra Tech?
+            <h2 className="text-5xl md:text-6xl font-bold soft-gradient-text mb-6">
+              Why Choose Us?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
-              We combine technical expertise with innovative thinking to deliver solutions that exceed expectations.
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto font-light">
+              We combine technical excellence with creative innovation to deliver solutions that exceed expectations.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="hover-lift modern-card group">
-              <CardContent className="p-10 text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-lavender-500 to-lavender-700 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Globe className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-semibold mb-4 text-gradient-hover">Global Reach</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  International team serving clients across 25+ countries with localized expertise.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="hover-lift modern-card group">
-              <CardContent className="p-10 text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-lavender-500 to-lavender-700 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Clock className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-semibold mb-4 text-gradient-hover">24/7 Support</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Round-the-clock technical support and maintenance for uninterrupted operations.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="hover-lift modern-card group">
-              <CardContent className="p-10 text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-lavender-500 to-lavender-700 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Shield className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-semibold mb-4 text-gradient-hover">Sustainability Focus</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Committed to environmentally responsible technology solutions and green practices.
-                </p>
-              </CardContent>
-            </Card>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8" ref={featuresRef}>
+            {features.map((feature, index) => {
+              const IconComponent = feature.icon;
+              return (
+                <Card key={index} className="hover-lift modern-card group border-0 shadow-xl shadow-slate-500/10">
+                  <CardContent className="p-10 text-center">
+                    <div className="w-20 h-20 bg-gradient-to-r from-indigo-500 to-blue-600 rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform duration-500 shadow-xl shadow-indigo-500/30">
+                      <IconComponent className="w-10 h-10 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-semibold mb-4 text-gradient-hover">{feature.title}</h3>
+                    <p className="text-slate-600 leading-relaxed">{feature.description}</p>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Services Preview */}
-      <section className="py-24 bg-gradient-to-br from-lavender-50/50 to-white">
+      {/* Services Section */}
+      <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h2 className="text-5xl md:text-6xl font-bold gradient-text mb-6">
-              Our Core Services
+            <h2 className="text-5xl md:text-6xl font-bold soft-gradient-text mb-6">
+              Our Expertise
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
-              Comprehensive technology solutions tailored for startups, enterprises, healthcare, 
-              e-commerce, and government sectors.
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto font-light">
+              Comprehensive technology solutions designed for modern businesses across all industries.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" ref={servicesRef}>
-            {services.map((service, index) => (
-              <Card key={index} className="hover-lift modern-card group gradient-border">
-                <CardContent className="p-8">
-                  <div className="text-5xl mb-6 floating-animation" style={{animationDelay: `${index * 0.5}s`}}>
-                    {service.icon}
-                  </div>
-                  <h3 className="text-2xl font-semibold mb-4 text-gradient-hover">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
-                  <Link 
-                    to="/services" 
-                    className="inline-flex items-center text-lavender-600 hover:text-lavender-700 font-semibold group-hover:translate-x-2 transition-all duration-300"
-                  >
-                    Learn More
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </CardContent>
-              </Card>
-            ))}
+            {services.map((service, index) => {
+              const IconComponent = service.icon;
+              return (
+                <Card key={index} className="hover-lift modern-card group border-0 shadow-xl shadow-slate-500/10 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-white via-blue-50/20 to-indigo-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <CardContent className="p-8 relative">
+                    <div className={`w-16 h-16 bg-gradient-to-r ${service.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-500`}>
+                      <IconComponent className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-semibold mb-4 text-gradient-hover">
+                      {service.title}
+                    </h3>
+                    <p className="text-slate-600 mb-6 leading-relaxed">{service.description}</p>
+                    <div className="space-y-2 mb-6">
+                      {service.features.map((feature, idx) => (
+                        <div key={idx} className="flex items-center text-sm text-slate-500">
+                          <div className="w-1.5 h-1.5 bg-indigo-500 rounded-full mr-3"></div>
+                          {feature}
+                        </div>
+                      ))}
+                    </div>
+                    <Link 
+                      to="/services" 
+                      className="inline-flex items-center text-indigo-600 hover:text-indigo-700 font-semibold group-hover:translate-x-2 transition-all duration-300"
+                    >
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
 
           <div className="text-center mt-16">
-            <Button asChild size="lg" className="btn-modern text-lg px-10 py-4">
+            <Button asChild size="lg" className="btn-modern text-lg px-12 py-6">
               <Link to="/services">
-                View All Services
-                <ArrowRight className="ml-2 h-5 w-5" />
+                Explore All Services
+                <ArrowRight className="ml-3 h-5 w-5" />
               </Link>
             </Button>
           </div>
@@ -278,21 +318,22 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-r from-lavender-600 via-lavender-700 to-lavender-800 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-lavender-600/90 to-lavender-800/90"></div>
+      <section className="py-24 bg-gradient-to-r from-indigo-600 via-blue-600 to-purple-700 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/95 to-purple-700/95"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_70%)]"></div>
         <div className="relative max-w-5xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-5xl md:text-6xl font-bold mb-8">
-            Ready to Transform Your Business?
+            Ready to Innovate?
           </h2>
-          <p className="text-xl mb-12 text-lavender-100 font-light max-w-3xl mx-auto">
-            Join hundreds of companies who trust Inoventra Tech with their digital transformation journey.
+          <p className="text-xl mb-12 text-blue-100 font-light max-w-3xl mx-auto">
+            Join hundreds of forward-thinking companies who trust us to transform their digital presence and drive growth.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button asChild size="lg" variant="secondary" className="bg-white text-lavender-700 hover:bg-gray-100 px-10 py-4 rounded-xl font-semibold">
-              <Link to="/contact">Schedule a Call</Link>
+            <Button asChild size="lg" className="bg-white text-indigo-700 hover:bg-gray-100 px-12 py-6 rounded-2xl font-semibold shadow-xl">
+              <Link to="/contact">Schedule Consultation</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-lavender-700 px-10 py-4 rounded-xl font-semibold">
-              <Link to="/contact">Get a Quote</Link>
+            <Button asChild size="lg" className="border-2 border-white text-white hover:bg-white hover:text-indigo-700 px-12 py-6 rounded-2xl font-semibold transition-all duration-300">
+              <Link to="/contact">Get Quote</Link>
             </Button>
           </div>
         </div>

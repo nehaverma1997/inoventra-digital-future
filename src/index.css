@@ -5,44 +5,44 @@
 
 @layer base {
   :root {
-    --background: 255 255 255;
-    --foreground: 15 23 42;
+    --background: 252 252 253;
+    --foreground: 51 65 85;
 
     --card: 255 255 255;
-    --card-foreground: 15 23 42;
+    --card-foreground: 51 65 85;
 
     --popover: 255 255 255;
-    --popover-foreground: 15 23 42;
+    --popover-foreground: 51 65 85;
 
-    --primary: 139 92 246;
+    --primary: 99 102 241;
     --primary-foreground: 255 255 255;
 
-    --secondary: 248 247 255;
-    --secondary-foreground: 88 28 135;
+    --secondary: 248 250 252;
+    --secondary-foreground: 71 85 105;
 
     --muted: 248 250 252;
     --muted-foreground: 100 116 139;
 
-    --accent: 240 237 255;
-    --accent-foreground: 124 58 237;
+    --accent: 239 246 255;
+    --accent-foreground: 59 130 246;
 
     --destructive: 239 68 68;
     --destructive-foreground: 255 255 255;
 
     --border: 226 232 240;
     --input: 226 232 240;
-    --ring: 139 92 246;
+    --ring: 99 102 241;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 255 255 255;
     --sidebar-foreground: 51 65 85;
-    --sidebar-primary: 139 92 246;
+    --sidebar-primary: 99 102 241;
     --sidebar-primary-foreground: 255 255 255;
     --sidebar-accent: 248 250 252;
     --sidebar-accent-foreground: 51 65 85;
     --sidebar-border: 226 232 240;
-    --sidebar-ring: 139 92 246;
+    --sidebar-ring: 99 102 241;
   }
 }
 
@@ -55,6 +55,7 @@
     @apply bg-background text-foreground font-inter;
     font-feature-settings: "cv11", "ss01";
     font-variation-settings: "opsz" 32;
+    scroll-behavior: smooth;
   }
 
   html {
@@ -64,84 +65,159 @@
 
 @layer components {
   .gradient-text {
-    @apply bg-gradient-to-r from-lavender-600 via-lavender-700 to-lavender-800 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-indigo-600 via-blue-600 to-purple-600 bg-clip-text text-transparent;
+  }
+  
+  .soft-gradient-text {
+    @apply bg-gradient-to-r from-slate-700 via-indigo-600 to-blue-600 bg-clip-text text-transparent;
   }
   
   .hover-lift {
-    @apply transition-all duration-500 ease-out hover:translate-y-[-8px] hover:shadow-2xl hover:shadow-lavender-500/20;
+    @apply transition-all duration-700 ease-out hover:translate-y-[-12px] hover:shadow-2xl hover:shadow-indigo-500/15;
   }
   
   .glass-effect {
-    @apply backdrop-blur-xl bg-white/90 border border-white/30 shadow-xl shadow-lavender-500/10;
+    @apply backdrop-blur-xl bg-white/80 border border-white/40 shadow-xl shadow-indigo-500/10;
   }
 
   .modern-card {
-    @apply bg-white/95 backdrop-blur-sm border border-lavender-100 rounded-2xl shadow-lg shadow-lavender-500/5 hover:shadow-xl hover:shadow-lavender-500/10 transition-all duration-300;
+    @apply bg-white/95 backdrop-blur-sm border border-slate-200/60 rounded-3xl shadow-lg shadow-slate-500/8 hover:shadow-xl hover:shadow-indigo-500/15 transition-all duration-500;
   }
 
   .gradient-border {
-    @apply relative overflow-hidden rounded-2xl;
+    @apply relative overflow-hidden rounded-3xl;
   }
 
   .gradient-border::before {
     content: '';
-    @apply absolute inset-0 p-[1px] bg-gradient-to-r from-lavender-400 to-lavender-600 rounded-2xl;
+    @apply absolute inset-0 p-[1px] bg-gradient-to-r from-indigo-400 via-blue-500 to-purple-500 rounded-3xl;
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask-composite: exclude;
   }
 
   .floating-animation {
-    animation: float 6s ease-in-out infinite;
+    animation: float 8s ease-in-out infinite;
   }
 
   .text-gradient-hover {
-    @apply transition-all duration-300 hover:bg-gradient-to-r hover:from-lavender-600 hover:to-lavender-800 hover:bg-clip-text hover:text-transparent;
+    @apply transition-all duration-500 hover:bg-gradient-to-r hover:from-indigo-600 hover:to-blue-600 hover:bg-clip-text hover:text-transparent;
+  }
+
+  .soft-shadow {
+    box-shadow: 0 10px 40px -10px rgba(99, 102, 241, 0.1);
+  }
+
+  .modern-blur {
+    @apply backdrop-blur-md bg-white/70 border border-white/30;
   }
 }
 
-/* Enhanced scrollbar */
+/* Enhanced modern scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: linear-gradient(180deg, #f8f7ff, #f0edff);
+  background: linear-gradient(180deg, #f8fafc, #f1f5f9);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #8b5cf6, #7c3aed);
+  background: linear-gradient(180deg, #6366f1, #4f46e5);
   border-radius: 10px;
-  border: 2px solid #f8f7ff;
+  border: 2px solid #f8fafc;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #7c3aed, #6b21a8);
+  background: linear-gradient(180deg, #4f46e5, #4338ca);
 }
 
 @keyframes float {
   0%, 100% {
-    transform: translateY(0px);
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-15px) rotate(1deg);
+  }
+  66% {
+    transform: translateY(-8px) rotate(-1deg);
+  }
+}
+
+@keyframes pulse-soft {
+  0%, 100% {
+    opacity: 1;
   }
   50% {
-    transform: translateY(-20px);
+    opacity: 0.8;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
   }
 }
 
 /* Modern button styles */
 .btn-modern {
-  @apply relative overflow-hidden bg-gradient-to-r from-lavender-600 to-lavender-700 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 hover:from-lavender-700 hover:to-lavender-800 hover:shadow-lg hover:shadow-lavender-500/25 hover:scale-105 active:scale-95;
+  @apply relative overflow-hidden bg-gradient-to-r from-indigo-600 to-blue-600 text-white font-semibold py-4 px-10 rounded-2xl transition-all duration-500 hover:from-indigo-700 hover:to-blue-700 hover:shadow-2xl hover:shadow-indigo-500/30 hover:scale-105 active:scale-95;
 }
 
 .btn-modern::before {
   content: '';
-  @apply absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 transition-opacity duration-300;
+  @apply absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 transition-opacity duration-500;
 }
 
 .btn-modern:hover::before {
   @apply opacity-100;
 }
 
+.btn-soft {
+  @apply relative overflow-hidden bg-white/90 backdrop-blur-sm text-slate-700 font-semibold py-4 px-10 rounded-2xl border border-slate-200/60 transition-all duration-500 hover:bg-white hover:shadow-xl hover:shadow-slate-500/20 hover:scale-105 active:scale-95;
+}
+
 /* Enhanced focus states */
 .focus-modern {
-  @apply focus:outline-none focus:ring-4 focus:ring-lavender-500/20 focus:border-lavender-500 transition-all duration-200;
+  @apply focus:outline-none focus:ring-4 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all duration-300;
+}
+
+/* Shimmer effect */
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Soft animations */
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s ease-out;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
