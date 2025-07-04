@@ -53,6 +53,8 @@
 
   body {
     @apply bg-background text-foreground font-inter;
+    font-feature-settings: "cv11", "ss01";
+    font-variation-settings: "opsz" 32;
   }
 
   html {
@@ -62,32 +64,84 @@
 
 @layer components {
   .gradient-text {
-    @apply bg-gradient-to-r from-lavender-600 to-lavender-800 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-lavender-600 via-lavender-700 to-lavender-800 bg-clip-text text-transparent;
   }
   
   .hover-lift {
-    @apply transition-all duration-300 hover:translate-y-[-4px] hover:shadow-lg;
+    @apply transition-all duration-500 ease-out hover:translate-y-[-8px] hover:shadow-2xl hover:shadow-lavender-500/20;
   }
   
   .glass-effect {
-    @apply backdrop-blur-md bg-white/80 border border-white/20;
+    @apply backdrop-blur-xl bg-white/90 border border-white/30 shadow-xl shadow-lavender-500/10;
+  }
+
+  .modern-card {
+    @apply bg-white/95 backdrop-blur-sm border border-lavender-100 rounded-2xl shadow-lg shadow-lavender-500/5 hover:shadow-xl hover:shadow-lavender-500/10 transition-all duration-300;
+  }
+
+  .gradient-border {
+    @apply relative overflow-hidden rounded-2xl;
+  }
+
+  .gradient-border::before {
+    content: '';
+    @apply absolute inset-0 p-[1px] bg-gradient-to-r from-lavender-400 to-lavender-600 rounded-2xl;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+  }
+
+  .floating-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .text-gradient-hover {
+    @apply transition-all duration-300 hover:bg-gradient-to-r hover:from-lavender-600 hover:to-lavender-800 hover:bg-clip-text hover:text-transparent;
   }
 }
 
-/* Custom scrollbar */
+/* Enhanced scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: linear-gradient(180deg, #f8f7ff, #f0edff);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #8b5cf6;
-  border-radius: 4px;
+  background: linear-gradient(180deg, #8b5cf6, #7c3aed);
+  border-radius: 10px;
+  border: 2px solid #f8f7ff;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #7c3aed;
+  background: linear-gradient(180deg, #7c3aed, #6b21a8);
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Modern button styles */
+.btn-modern {
+  @apply relative overflow-hidden bg-gradient-to-r from-lavender-600 to-lavender-700 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 hover:from-lavender-700 hover:to-lavender-800 hover:shadow-lg hover:shadow-lavender-500/25 hover:scale-105 active:scale-95;
+}
+
+.btn-modern::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 transition-opacity duration-300;
+}
+
+.btn-modern:hover::before {
+  @apply opacity-100;
+}
+
+/* Enhanced focus states */
+.focus-modern {
+  @apply focus:outline-none focus:ring-4 focus:ring-lavender-500/20 focus:border-lavender-500 transition-all duration-200;
 }
